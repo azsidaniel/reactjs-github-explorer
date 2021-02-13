@@ -35,26 +35,20 @@ const Repository: FC = () => {
   const [repository, setRepository] = useState<RepositoryType | null>(null);
   const [issues, setIssues] = useState<IssuesType[]>([]);
 
-  console.log(issues);
-
   useEffect(() => {
     const fetchIssues = () => {
-      try {
-        /*  const [responseIssues, responseRepository] = await Promise.all([
+      /*  const [responseIssues, responseRepository] = await Promise.all([
           api.get(`repos/${params.repository}`),
           api.get(`repos/${params.repository}/issues`),
         ]); */
 
-        api.get(`repos/${params.repository}`).then(response => {
-          setRepository(response.data);
-        });
+      api.get(`repos/${params.repository}`).then(response => {
+        setRepository(response.data);
+      });
 
-        api.get(`repos/${params.repository}/issues`).then(response => {
-          setIssues(response.data);
-        });
-      } catch (err) {
-        console.log(err);
-      }
+      api.get(`repos/${params.repository}/issues`).then(response => {
+        setIssues(response.data);
+      });
     };
     fetchIssues();
   }, [params.repository]);
