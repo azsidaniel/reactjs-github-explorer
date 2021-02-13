@@ -5,14 +5,14 @@ import api from '../../services/api';
 import logoImage from '../../assets/logo.svg';
 import { Title, Form, Repositories, Error } from './styles';
 
-type Repository = {
+interface Repository {
   full_name: string;
   description: string;
   owner: {
     login: string;
     avatar_url: string;
   };
-};
+}
 
 const Dashboard: FC = () => {
   const [inputError, setInputError] = useState('');
